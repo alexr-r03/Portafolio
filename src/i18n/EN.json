@@ -17,7 +17,7 @@
   "hero": {
     "role": "Systems Engineering Student · Web Developer",
     "intro": "Tenth-semester Systems Engineering student with hands-on frontend and backend web development experience.",
-    "location": "Colombia"
+    "location": "Bogotá, Colombia"
   },
   "about": {
     "title": "Professional profile",
@@ -105,6 +105,7 @@
     "text": "I am available to discuss web development opportunities.",
     "email": "Email",
     "whatsapp": "WhatsApp",
+    "github": "GitHub",
     "instagram": "Instagram"
   },
   "footer": {
