@@ -1,9 +1,19 @@
 
 import React, { useEffect, useRef } from "react";
 import { Box } from "@mui/material";
+import { colors } from "../theme/colors";
 
-const NeuralBackground = () => {
+const alphaHex = Array.from({ length: 256 }, (_, alpha) => alpha.toString(16).padStart(2, "0"));
+
+const withAlpha = (hexColor, opacity) => {
+    const alpha = Math.round(Math.max(0, Math.min(1, opacity)) * 255);
+
+    return `${hexColor.slice(0, 7)}${alphaHex[alpha]}`;
+};
+
+const Background = ({ mode = "dark" }) => {
     const canvasRef = useRef(null);
+    const backgroundColors = colors.neuralBackground;
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -101,8 +111,8 @@ const NeuralBackground = () => {
                 240
             );
 
-            glow.addColorStop(0, "rgba(40, 170, 255, 0.07)");
-            glow.addColorStop(1, "rgba(40, 170, 255, 0)");
+            glow.addColorStop(0, backgroundColors.mouseGlow[mode]);
+            glow.addColorStop(1, backgroundColors.mouseGlowClear[mode]);
 
             ctx.fillStyle = glow;
             ctx.fillRect(
@@ -146,7 +156,7 @@ const NeuralBackground = () => {
                         ctx.moveTo(a.x, a.y);
                         ctx.lineTo(b.x, b.y);
 
-                        ctx.strokeStyle = `rgba(70, 160, 220, ${opacity})`;
+                        ctx.strokeStyle = withAlpha(backgroundColors.nodeConnection[mode], opacity);
                         ctx.lineWidth = 0.7;
                         ctx.stroke();
                     }
@@ -181,8 +191,7 @@ const NeuralBackground = () => {
                 ctx.moveTo(mouse.x, mouse.y);
                 ctx.lineTo(node.x, node.y);
 
-                ctx.strokeStyle = `rgba(80, 200, 255, ${strength * 0.85
-                    })`;
+                ctx.strokeStyle = withAlpha(backgroundColors.mouseConnection[mode], strength * 0.85);
 
                 ctx.lineWidth = 1.15;
                 ctx.stroke();
@@ -200,7 +209,7 @@ const NeuralBackground = () => {
                 ctx.beginPath();
                 ctx.arc(px, py, 1.5, 0, Math.PI * 2);
 
-                ctx.fillStyle = `rgba(150, 235, 255, ${strength})`;
+                ctx.fillStyle = withAlpha(backgroundColors.particle[mode], strength);
                 ctx.fill();
             }
 
@@ -232,8 +241,7 @@ const NeuralBackground = () => {
                     Math.PI * 2
                 );
 
-                ctx.fillStyle = `rgba(60, 180, 255, ${0.01 + proximity * 0.04
-                    })`;
+                ctx.fillStyle = withAlpha(backgroundColors.aura[mode], 0.01 + proximity * 0.04);
 
                 ctx.fill();
 
@@ -249,12 +257,11 @@ const NeuralBackground = () => {
 
                 ctx.fillStyle =
                     proximity > 0
-                        ? `rgba(145, 230, 255, ${0.65 + proximity * 0.35
-                        })`
-                        : "rgba(100, 155, 195, 0.55)";
+                        ? withAlpha(backgroundColors.coreNear[mode], 0.65 + proximity * 0.35)
+                        : backgroundColors.coreFar[mode];
 
                 ctx.shadowBlur = proximity > 0 ? 14 : 5;
-                ctx.shadowColor = "rgba(50, 190, 255, 0.9)";
+                ctx.shadowColor = backgroundColors.shadow[mode];
 
                 ctx.fill();
 
@@ -270,7 +277,7 @@ const NeuralBackground = () => {
             window.removeEventListener("resize", resize);
             window.removeEventListener("pointermove", handleMouseMove);
         };
-    }, []);
+    }, [mode, backgroundColors]);
 
     return (
         <Box
@@ -284,17 +291,17 @@ const NeuralBackground = () => {
                 display: "block",
                 zIndex: 0,
                 pointerEvents: "none",
-                background: `
+            background: `
           radial-gradient(
             circle at 50% 50%,
-            rgba(15, 40, 65, 0.45),
-            transparent 50%
+            ${backgroundColors.radial[mode]},
+            ${backgroundColors.clear[mode]} 50%
           ),
-          #02050b
+          ${backgroundColors.canvas[mode]}
         `,
             }}
         />
     );
 };
 
-export default NeuralBackground;
+export default Background;
