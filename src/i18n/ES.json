@@ -1,0 +1,113 @@
+{
+  "nav": {
+    "about": "Perfil",
+    "experience": "Experiencia",
+    "projects": "Proyectos",
+    "contact": "Contacto"
+  },
+  "actions": {
+    "downloadResume": "Descargar HV",
+    "viewResume": "Descargar HV",
+    "viewProject": "Ver proyecto",
+    "switchToEnglish": "Cambiar a inglés",
+    "switchToSpanish": "Cambiar a español",
+    "lightMode": "Activar modo claro",
+    "darkMode": "Activar modo oscuro"
+  },
+  "hero": {
+    "role": "Estudiante de Ingeniería de Sistemas · Desarrollador web",
+    "intro": "Estudiante de décimo semestre con experiencia práctica en desarrollo web frontend y backend.",
+    "location": "Colombia"
+  },
+  "about": {
+    "title": "Perfil profesional",
+    "text": "Estudiante de Ingeniería de Sistemas de décimo semestre, con experiencia práctica en desarrollo web frontend y backend utilizando JavaScript, React, Node.js y Express. Experiencia en construcción y mantenimiento de API REST, desarrollo de interfaces con Material UI (MUI), validación de datos con Joi, documentación técnica con Swagger y control de versiones con Git y GitHub. Conocimientos en bases de datos MySQL y SQL Server, así como en Python, PHP, Laravel y Django. Cuenta además con conocimientos en mantenimiento de equipos de cómputo, redes y fundamentos de seguridad de la información. Se destaca por el trabajo en equipo, la adaptabilidad y la comunicación efectiva. Inglés B1."
+  },
+  "experience": {
+    "title": "Experiencia laboral",
+    "role": "Practicante · Desarrollador web",
+    "company": "Teleperformance Colombia S.A.S.",
+    "dates": "8 de abril de 2026 – 7 de octubre de 2026",
+    "responsibilitiesTitle": "Funciones",
+    "responsibilities": [
+      "Desarrollo y mantenimiento de funcionalidades backend con Node.js y Express, aplicando una arquitectura organizada en modelos, servicios, controladores y DTO.",
+      "Desarrollo y ajuste de interfaces frontend con React y Material UI (MUI), mejorando la presentación visual, los temas y la adaptación de los componentes a diferentes tamaños de pantalla.",
+      "Documentación de API REST mediante Swagger, incluyendo endpoints y documentación técnica para facilitar la comprensión y el mantenimiento del sistema."
+    ],
+    "achievementsTitle": "Logros",
+    "achievements": [
+      "Contribuí a mejorar la organización y mantenibilidad del backend mediante la separación de responsabilidades y el uso de librerías como Joi para la validación de datos.",
+      "Implementé ajustes visuales y mejoras en estilos responsivos de aplicaciones desarrolladas con React y MUI, favoreciendo la consistencia de la interfaz.",
+      "Apliqué buenas prácticas de desarrollo con Git y GitHub, utilizando estrategias de branching para organizar los cambios y mantener la trazabilidad del código.",
+      "Fortalecí la documentación técnica de los servicios backend mediante Swagger, facilitando la consulta y comprensión de los endpoints de las aplicaciones."
+    ]
+  },
+  "education": {
+    "title": "Educación",
+    "degree": "Ingeniería de Sistemas · Décimo semestre",
+    "institution": "Corporación Universitaria Minuto de Dios (UNIMINUTO)",
+    "dates": "Febrero de 2022 – En curso"
+  },
+  "stack": {
+    "title": "Tecnologías principales",
+    "hint": "Pasa el cursor sobre cada icono para ver la tecnología."
+  },
+  "technicalSkills": {
+    "title": "Habilidades técnicas",
+    "groups": [
+      { "id": "languages", "label": "Lenguajes", "items": ["JavaScript", "Python", "PHP", "Java", "R"] },
+      { "id": "frontend", "label": "Desarrollo frontend", "items": ["React", "Material UI (MUI)", "HTML5", "CSS3", "Bootstrap"] },
+      { "id": "backend", "label": "Desarrollo backend", "items": ["Node.js", "Express", "Laravel", "Django"] },
+      { "id": "databases", "label": "Bases de datos", "items": ["MySQL", "SQL Server"] },
+      { "id": "tools", "label": "Herramientas", "items": ["Git", "GitHub", "Joi", "Swagger", "Visual Studio Code", "Docker"] },
+      { "id": "networking", "label": "Redes y soporte", "items": ["LAN", "IPv4/IPv6", "VLAN", "DHCP", "Routers", "Switches", "Cableado estructurado", "Mantenimiento e instalación de equipos"] },
+      { "id": "complementary", "label": "Metodologías y conocimientos complementarios", "items": ["Scrum", "Fundamentos de ISO 27001", "Inglés B1", "Trabajo en equipo", "Adaptabilidad", "Comunicación efectiva"] }
+    ]
+  },
+  "certifications": {
+    "title": "Cursos y certificaciones",
+    "items": [
+      { "name": "Developing Front-End Apps with React", "issuer": "IBM Skills Network · Coursera", "date": "Julio de 2026" },
+      { "name": "IoT Fundamentals: Connecting Things", "issuer": "Cisco", "date": "2023" },
+      { "name": "Desarrollo de Aplicaciones Móviles", "issuer": "UNIMINUTO", "date": "2024" },
+      { "name": "Congreso Internacional de Ingeniería con Sentido Social (CIISS)", "issuer": "UNIMINUTO", "date": "2025" }
+    ]
+  },
+  "projects": {
+    "title": "Proyectos de ejemplo",
+    "hint": "Estas tarjetas son ejemplos visuales; reemplázalas por proyectos propios cuando quieras.",
+    "items": [
+      {
+        "id": "project-one",
+        "name": "Sitio de portafolio",
+        "description": "Un sitio personal sencillo para presentar mi perfil y compartir proyectos destacados.",
+        "imageAlt": "Vista previa de un sitio de portafolio",
+        "technologies": ["React", "MUI", "Vite"]
+      },
+      {
+        "id": "project-two",
+        "name": "Panel de analítica",
+        "description": "Concepto de panel para explorar métricas y entender la actividad de un producto.",
+        "imageAlt": "Vista previa de un panel de analítica",
+        "technologies": ["JavaScript", "Gráficas", "CSS"]
+      },
+      {
+        "id": "project-three",
+        "name": "Gestor de tareas",
+        "description": "Organizador de tareas ligero, enfocado en prioridades claras y flujos simples.",
+        "imageAlt": "Vista previa de un gestor de tareas",
+        "technologies": ["React", "Node.js", "MongoDB"]
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contacto",
+    "text": "Estoy disponible para conversar sobre oportunidades de desarrollo web.",
+    "email": "Correo",
+    "whatsapp": "WhatsApp",
+    "instagram": "Instagram"
+  },
+  "footer": {
+    "note": "Portafolio de Alexander Rincón Rincón."
+  }
+}
