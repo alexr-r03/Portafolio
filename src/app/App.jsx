@@ -17,106 +17,26 @@ import {
   Typography,
   createTheme,
 } from '@mui/material'
-import AccountTreeRoundedIcon from '@mui/icons-material/AccountTreeRounded'
 import ArrowOutwardRoundedIcon from '@mui/icons-material/ArrowOutwardRounded'
 import Brightness4RoundedIcon from '@mui/icons-material/Brightness4Rounded'
 import Brightness7RoundedIcon from '@mui/icons-material/Brightness7Rounded'
-import CloudRoundedIcon from '@mui/icons-material/CloudRounded'
 import CodeRoundedIcon from '@mui/icons-material/CodeRounded'
-import DataObjectRoundedIcon from '@mui/icons-material/DataObjectRounded'
 import DownloadRoundedIcon from '@mui/icons-material/DownloadRounded'
 import EmailRoundedIcon from '@mui/icons-material/EmailRounded'
-import GitHubIcon from '@mui/icons-material/GitHub'
-import HubRoundedIcon from '@mui/icons-material/HubRounded'
-import InstagramIcon from '@mui/icons-material/Instagram'
-import JavascriptRoundedIcon from '@mui/icons-material/JavascriptRounded'
 import LanguageRoundedIcon from '@mui/icons-material/LanguageRounded'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined'
 import PersonOutlineRoundedIcon from '@mui/icons-material/PersonOutlineRounded'
-import StorageRoundedIcon from '@mui/icons-material/StorageRounded'
-import TerminalRoundedIcon from '@mui/icons-material/TerminalRounded'
-import WhatsAppIcon from '@mui/icons-material/WhatsApp'
-import Background from './components/background'
-import { useI18n } from './i18n'
-import { portfolio, projects } from './data/portfolio'
-import { colors } from './theme/colors'
-import { globalStyles } from './theme/globalStyles'
-
-const stackIcons = {
-  react: HubRoundedIcon,
-  javascript: JavascriptRoundedIcon,
-  node: TerminalRoundedIcon,
-  express: TerminalRoundedIcon,
-  mui: HubRoundedIcon,
-  python: DataObjectRoundedIcon,
-  php: CodeRoundedIcon,
-  swagger: DataObjectRoundedIcon,
-  html: CodeRoundedIcon,
-  css: CodeRoundedIcon,
-  git: AccountTreeRoundedIcon,
-  database: StorageRoundedIcon,
-  cloud: CloudRoundedIcon,
-}
-
-const contactItems = [
-  { key: 'email', icon: EmailRoundedIcon },
-  { key: 'whatsapp', icon: WhatsAppIcon },
-  { key: 'instagram', icon: InstagramIcon },
-]
-
-function getContactHref(key) {
-  if (key === 'email') return `mailto:${portfolio.email}`
-  if (key === 'whatsapp') return portfolio.whatsapp ? `https://wa.me/${portfolio.whatsapp.replace(/\D/g, '')}` : '#contacto'
-  return portfolio.instagramUrl || '#contacto'
-}
-
-function ContactLinks({ t, compact = false }) {
-  return (
-    <Stack direction="row" spacing={compact ? 1.5 : 3} className={compact ? 'top-contacts' : 'contact-links'}>
-      {contactItems.map(({ key, icon: Icon }) => {
-        const href = getContactHref(key)
-        const external = href.startsWith('https://')
-        return (
-          <Link
-            key={key}
-            href={href}
-            target={external ? '_blank' : undefined}
-            rel={external ? 'noreferrer' : undefined}
-            aria-label={t(`contact.${key}`)}
-            underline="none"
-            className="contact-link"
-          >
-            <Icon />
-            {!compact && <Typography component="span">{t(`contact.${key}`)}</Typography>}
-          </Link>
-        )
-      })}
-    </Stack>
-  )
-}
-
-function ProjectCard({ project, t }) {
-  return (
-    <Box component="article" className="project-card">
-      <Box className="project-image-wrap">
-        <img className="project-image" src={project.image} alt={project.imageAlt} loading="lazy" />
-      </Box>
-      <Box className="project-details">
-        <Stack direction="row" alignItems="center" justifyContent="space-between" gap={2}>
-          <Typography variant="h3" className="project-title">{project.name}</Typography>
-          <Link href={project.link} target="_blank" rel="noreferrer" aria-label={`${t('actions.viewProject')}: ${project.name}`} className="project-link">
-            <ArrowOutwardRoundedIcon fontSize="small" />
-          </Link>
-        </Stack>
-        <Typography className="project-description">{project.description}</Typography>
-        <Stack direction="row" flexWrap="wrap" gap={0.8}>
-          {project.technologies.map((technology) => <Chip key={technology} label={technology} size="small" className="tech-chip" />)}
-        </Stack>
-      </Box>
-    </Box>
-  )
-}
+import Background from '../background/Background'
+import ContactLinks from '../components/ContactLinks'
+import ProjectCard from '../components/ProjectCard'
+import { BulletGroup, InfoRow, SectionTitle } from '../components/ResumeDetails'
+import { portfolio } from '../data/portfolio'
+import { projects } from '../data/projects'
+import { stackIcons } from '../data/stackIcons'
+import { useI18n } from '../i18n'
+import { colors } from '../theme/colors'
+import { globalStyles } from '../theme/globalStyles'
 
 function App() {
   const { language, changeLanguage, t } = useI18n()
@@ -214,12 +134,14 @@ function App() {
                   <Button component="a" href={`mailto:${portfolio.email}`} variant="outlined" startIcon={<EmailRoundedIcon />}>{t('nav.contact')}</Button>
                 </Stack>
                 <Stack direction="row" spacing={2} className="social-links">
-                  {portfolio.github && <Link href={portfolio.github} target="_blank" rel="noreferrer" aria-label="GitHub"><GitHubIcon /></Link>}
                   {portfolio.linkedin && <Link href={portfolio.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"><LinkedInIcon /></Link>}
                   <Typography className="location"><LocationOnOutlinedIcon fontSize="small" />{t('hero.location')}</Typography>
                 </Stack>
               </Box>
-              <Avatar src={portfolio.avatar} alt={portfolio.name} className="profile-avatar"><PersonOutlineRoundedIcon fontSize="large" /></Avatar>
+              <Box className="hero-aside">
+                <Avatar src={portfolio.avatar} alt={portfolio.name} className="profile-avatar"><PersonOutlineRoundedIcon fontSize="large" /></Avatar>
+                <ContactLinks t={t} presentation />
+              </Box>
             </Box>
 
             <Box component="section" id="sobre-mi" className="content-section text-panel">
@@ -288,7 +210,7 @@ function App() {
             <Box component="section" id="contacto" className="contact-section text-panel">
               <SectionTitle>{t('contact.title')}</SectionTitle>
               <Typography className="section-copy">{t('contact.text')}</Typography>
-              <ContactLinks t={t} />
+              <ContactLinks t={t} presentation />
               <Button component="a" href={portfolio.resumeUrl} download="HV Alexander Rincon.pdf" variant="text" className="resume-button">
                 {t('actions.viewResume')}<ArrowOutwardRoundedIcon fontSize="small" />
               </Button>
@@ -301,35 +223,6 @@ function App() {
         </Container>
       </Box>
     </ThemeProvider>
-  )
-}
-
-function SectionTitle({ children }) {
-  return <Typography component="h2" className="section-title">{children}</Typography>
-}
-
-function InfoRow({ title, subtitle, description, children }) {
-  return (
-    <Box className="info-row">
-      <Box className="info-dot" />
-      <Box>
-        <Typography className="info-title">{title}</Typography>
-        <Typography className="info-subtitle">{subtitle}</Typography>
-        {description && <Typography className="info-description">{description}</Typography>}
-        {children}
-      </Box>
-    </Box>
-  )
-}
-
-function BulletGroup({ title, items }) {
-  return (
-    <Box className="resume-bullet-group">
-      <Typography className="resume-group-title">{title}</Typography>
-      <Box component="ul" className="resume-bullets">
-        {items.map((item) => <Box component="li" key={item}>{item}</Box>)}
-      </Box>
-    </Box>
   )
 }
 

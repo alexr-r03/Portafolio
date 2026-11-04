@@ -157,7 +157,19 @@ button, a { -webkit-tap-highlight-color: #00000000; }
 }
 
 .hero-copy {
+  flex: 1 1 auto;
   max-width: 620px;
+}
+
+.hero-aside {
+  display: flex;
+  flex: 0 0 270px;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  min-width: 0;
+  border-left: 1px solid var(--portfolio-line);
+  padding-left: 30px;
 }
 
 .eyebrow.MuiTypography-root {
@@ -510,6 +522,49 @@ button, a { -webkit-tap-highlight-color: #00000000; }
   font-size: 19px;
 }
 
+.presentation-contacts {
+  width: 100%;
+  margin-top: 0;
+}
+
+.presentation-contacts .contact-link {
+  width: 100%;
+  align-items: flex-start;
+  gap: 12px;
+  color: var(--portfolio-muted);
+}
+
+.presentation-contacts .contact-link:hover {
+  color: var(--color-accent);
+}
+
+.presentation-contacts .contact-link > svg {
+  flex: 0 0 19px;
+  margin-top: 3px;
+  font-size: 19px;
+}
+
+.presentation-contact-copy {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.presentation-contact-label.MuiTypography-root {
+  color: var(--portfolio-muted);
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .025em;
+}
+
+.presentation-contact-value.MuiTypography-root {
+  overflow-wrap: anywhere;
+  color: var(--portfolio-text);
+  font-size: .78rem;
+  line-height: 1.5;
+}
+
 .resume-button.MuiButton-root {
   margin-top: 17px;
   color: var(--portfolio-muted);
@@ -548,7 +603,7 @@ button, a { -webkit-tap-highlight-color: #00000000; }
   }
 
   .top-contacts {
-    gap: 8px !important;
+    gap: 11px !important;
   }
 
   .top-contacts .contact-link svg {
@@ -582,6 +637,16 @@ button, a { -webkit-tap-highlight-color: #00000000; }
     padding: 34px 28px;
     align-items: flex-start;
     gap: 20px;
+    flex-direction: column-reverse;
+  }
+
+  .hero-aside {
+    width: 100%;
+    flex: 0 0 auto;
+    align-items: flex-start;
+    border-top: 1px solid var(--portfolio-line);
+    border-left: 0;
+    padding: 20px 0 0;
   }
 
   .profile-avatar.MuiAvatar-root {
@@ -627,10 +692,6 @@ button, a { -webkit-tap-highlight-color: #00000000; }
 
   .language-label.MuiTypography-root {
     display: none;
-  }
-
-  .hero-section {
-    flex-direction: column-reverse;
   }
 
   .profile-avatar.MuiAvatar-root {
