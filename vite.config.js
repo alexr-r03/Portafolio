@@ -8,4 +8,9 @@ export default defineConfig({
     react(),
     babel({ presets: [reactCompilerPreset()] })
   ],
+  server: {
+    allowedHosts: [
+      'sb-5wiyr4mggims.vercel.run'
+    ]
+  }
 })
