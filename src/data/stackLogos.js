@@ -1,0 +1,22 @@
+// Logos vectoriales de marca servidos por Simple Icons y Devicon.
+export const stackLogos = {
+  javascript: 'https://cdn.simpleicons.org/javascript/F7DF1E',
+  r: 'https://cdn.simpleicons.org/r/276DC3',
+  react: 'https://cdn.simpleicons.org/react/61DAFB',
+  mui: 'https://cdn.simpleicons.org/mui/007FFF',
+  html: 'https://cdn.simpleicons.org/html5/E34F26',
+  css: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg',
+  bootstrap: 'https://cdn.simpleicons.org/bootstrap/7952B3',
+  node: 'https://cdn.simpleicons.org/nodedotjs/5FA04E',
+  express: 'https://cdn.simpleicons.org/express/000000',
+  laravel: 'https://cdn.simpleicons.org/laravel/FF2D20',
+  python: 'https://cdn.simpleicons.org/python/3776AB',
+  php: 'https://cdn.simpleicons.org/php/777BB4',
+  database: 'https://cdn.simpleicons.org/mysql/4479A1',
+  sqlserver: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-original.svg',
+  git: 'https://cdn.simpleicons.org/git/F05032',
+  swagger: 'https://cdn.simpleicons.org/swagger/85EA2D',
+  cloud: 'https://cdn.simpleicons.org/docker/2496ED',
+  googlecolab: 'https://cdn.simpleicons.org/googlecolab/F9AB00',
+  jira: 'https://cdn.simpleicons.org/jira/0052CC',
+}

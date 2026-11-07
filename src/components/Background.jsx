@@ -31,8 +31,8 @@ const Background = ({ mode = "dark" }) => {
             targetY: window.innerHeight / 2,
         };
 
-        // Configuración original
-        const NODE_COUNT = 110;
+        // Configuración de las neuronas y sus conexiones
+        const NODE_COUNT = 150;
         const MOUSE_CONNECTION_DISTANCE = 270;
         const MAX_MOUSE_CONNECTIONS = 7;
         const NODE_CONNECTION_DISTANCE = 125;
@@ -64,31 +64,48 @@ const Background = ({ mode = "dark" }) => {
             }
         };
 
-        // Ajustar resolución
         const resize = () => {
             width = window.innerWidth;
             height = window.innerHeight;
 
             dpr = Math.min(window.devicePixelRatio || 1, 2);
 
-            canvas.width = width * dpr;
-            canvas.height = height * dpr;
+            canvas.width = Math.round(width * dpr);
+            canvas.height = Math.round(height * dpr);
+
+            canvas.style.width = `${width}px`;
+            canvas.style.height = `${height}px`;
 
             ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-            if (nodes.length === 0) {
-                createNodes();
-            }
+            // Redistribuir las neuronas según el nuevo viewport
+            createNodes();
+
+            // Mantener el mouse dentro del viewport
+            mouse.x = mouse.targetX = Math.min(mouse.x, width);
+            mouse.y = mouse.targetY = Math.min(mouse.y, height);
         };
 
-        // Seguir mouse
-        const handleMouseMove = (event) => {
+        // Seguir mouse en escritorio; el tacto se actualiza con touchmove abajo.
+        const handlePointerMove = (event) => {
+            if (event.pointerType === "touch") return;
+
             mouse.targetX = event.clientX;
             mouse.targetY = event.clientY;
         };
 
+        const handleTouchMove = (event) => {
+            const touch = event.touches[0];
+            if (!touch) return;
+
+            mouse.targetX = touch.clientX;
+            mouse.targetY = touch.clientY;
+        };
+
         window.addEventListener("resize", resize);
-        window.addEventListener("pointermove", handleMouseMove);
+        window.addEventListener("pointermove", handlePointerMove);
+        window.addEventListener("touchstart", handleTouchMove, { passive: true });
+        window.addEventListener("touchmove", handleTouchMove, { passive: true });
 
         resize();
 
@@ -275,7 +292,9 @@ const Background = ({ mode = "dark" }) => {
         return () => {
             cancelAnimationFrame(animationId);
             window.removeEventListener("resize", resize);
-            window.removeEventListener("pointermove", handleMouseMove);
+            window.removeEventListener("pointermove", handlePointerMove);
+            window.removeEventListener("touchstart", handleTouchMove);
+            window.removeEventListener("touchmove", handleTouchMove);
         };
     }, [mode, backgroundColors]);
 
@@ -291,13 +310,13 @@ const Background = ({ mode = "dark" }) => {
                 display: "block",
                 zIndex: 0,
                 pointerEvents: "none",
-            background: `
-          radial-gradient(
+                background: `
+            radial-gradient(
             circle at 50% 50%,
             ${backgroundColors.radial[mode]},
             ${backgroundColors.clear[mode]} 50%
-          ),
-          ${backgroundColors.canvas[mode]}
+            ),
+            ${backgroundColors.canvas[mode]}
         `,
             }}
         />
