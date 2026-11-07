@@ -30,4 +30,9 @@ export const colors = {
   surface: { dark: '#08111dad', light: '#f8fcffd1' },
   card: { dark: '#0a1421cc', light: '#fbfdffde' },
   panel: { dark: '#050c159e', light: '#fafdffa3' },
+  scrollbar: {
+    track: { dark: '#02050b', light: '#cfdee7' },
+    thumb: { dark: '#34718f', light: '#3d7d9b' },
+    thumbHover: { dark: '#4385a3', light: '#006e94' },
+  },
 }

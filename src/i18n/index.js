@@ -1,42 +1,40 @@
-import { useSyncExternalStore } from 'react'
+import i18next from 'i18next'
+import { initReactI18next, useTranslation } from 'react-i18next'
 import EN from './EN.json'
 import ES from './ES.json'
 
-const resources = { en: EN, es: ES }
-const validLanguages = Object.keys(resources)
-let language = validLanguages.includes(localStorage.getItem('portfolio-language'))
-  ? localStorage.getItem('portfolio-language')
-  : 'es'
-const listeners = new Set()
+const supportedLanguages = ['es', 'en']
+const savedLanguage = localStorage.getItem('portfolio-language')
+const initialLanguage = supportedLanguages.includes(savedLanguage) ? savedLanguage : 'es'
 
-function subscribe(listener) {
-  listeners.add(listener)
-  return () => listeners.delete(listener)
-}
-
-function getSnapshot() {
-  return language
-}
-
-function translate(key) {
-  return key.split('.').reduce((value, part) => value?.[part], resources[language]) ?? key
-}
-
-export const i18n = {
-  get language() {
-    return language
+i18next.use(initReactI18next).init({
+  resources: {
+    es: { translation: ES },
+    en: { translation: EN },
   },
-  t: translate,
-  changeLanguage(nextLanguage) {
-    if (!validLanguages.includes(nextLanguage) || language === nextLanguage) return
-    language = nextLanguage
+  lng: initialLanguage,
+  fallbackLng: 'es',
+  supportedLngs: supportedLanguages,
+  interpolation: { escapeValue: false },
+  returnObjects: true,
+  initAsync: false,
+  react: { useSuspense: false },
+})
+
+i18next.on('languageChanged', (language) => {
+  if (supportedLanguages.includes(language)) {
     localStorage.setItem('portfolio-language', language)
-    document.documentElement.lang = language
-    listeners.forEach((listener) => listener())
-  },
-}
+  }
+})
+
+export const i18n = i18next
 
 export function useI18n() {
-  useSyncExternalStore(subscribe, getSnapshot, getSnapshot)
-  return i18n
+  const { t, i18n: currentI18n } = useTranslation()
+
+  return {
+    language: currentI18n.resolvedLanguage || currentI18n.language,
+    changeLanguage: (language) => currentI18n.changeLanguage(language),
+    t,
+  }
 }

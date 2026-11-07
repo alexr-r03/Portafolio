@@ -2,6 +2,7 @@ import { Box, Link, Stack, Typography } from '@mui/material'
 import EmailRoundedIcon from '@mui/icons-material/EmailRounded'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import InstagramIcon from '@mui/icons-material/Instagram'
+import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import WhatsAppIcon from '@mui/icons-material/WhatsApp'
 import { portfolio } from '../data/portfolio'
 
@@ -10,12 +11,14 @@ const contactItems = [
   { key: 'whatsapp', icon: WhatsAppIcon },
   { key: 'github', icon: GitHubIcon },
   { key: 'instagram', icon: InstagramIcon },
+  { key: 'linkedin', icon: LinkedInIcon },
 ]
 
 function getContactHref(key) {
   if (key === 'email') return `mailto:${portfolio.email}`
   if (key === 'whatsapp') return portfolio.whatsapp ? `https://wa.me/${portfolio.whatsapp.replace(/\D/g, '')}` : '#contacto'
   if (key === 'github') return portfolio.github || '#contacto'
+  if (key === 'linkedin') return portfolio.linkedin || '#contacto'
   return portfolio.instagramUrl || '#contacto'
 }
 
@@ -23,6 +26,7 @@ function getContactValue(key) {
   if (key === 'email') return portfolio.email
   if (key === 'whatsapp') return portfolio.whatsappDisplay
   if (key === 'github') return portfolio.github.replace(/^https?:\/\//, '').replace(/\/$/, '')
+  if (key === 'linkedin') return portfolio.linkedin.replace(/^https?:\/\//, '').replace(/\/$/, '')
   return portfolio.instagramHandle
 }
 
