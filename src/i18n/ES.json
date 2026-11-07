@@ -21,13 +21,13 @@
     "darkMode": "Activar modo oscuro"
   },
   "hero": {
-    "role": "Ingeniero de Sistemas · Desarrollador web",
-    "intro": "Estudiante de décimo semestre con experiencia práctica en desarrollo web frontend y backend.",
+    "role": "Ingeniero de Sistemas | Full Stack Developer",
+    "intro": "Desarrollo aplicaciones web modernas, construyo API REST y diseño soluciones de automatización enfocadas en optimizar procesos y mejorar experiencias digitales.",
     "location": "Bogotá, Colombia"
   },
   "about": {
     "title": "Perfil profesional",
-    "text": "Ingeniero de Sistemas de décimo semestre, con experiencia práctica en desarrollo web frontend y backend utilizando JavaScript, React, Node.js y Express. Experiencia en construcción y mantenimiento de API REST, desarrollo de interfaces con Material UI (MUI), validación de datos con Joi, documentación técnica con Swagger y control de versiones con Git y GitHub. Conocimientos en bases de datos MySQL y SQL Server, así como en Python, PHP, Laravel y Django. Cuenta además con conocimientos en mantenimiento de equipos de cómputo, redes y fundamentos de seguridad de la información. Se destaca por el trabajo en equipo, la adaptabilidad y la comunicación efectiva. Inglés B1."
+    "text": "Ingeniero de Sistemas enfocado en el desarrollo de soluciones web frontend y backend, con experiencia práctica en construcción y mantenimiento de API REST, organización de aplicaciones bajo principios SOLID, validación de datos y documentación técnica. También cuento con conocimientos en redes (LAN, IPv4/IPv6, VLAN, DHCP y cableado estructurado), ensamble, instalación, diagnóstico y mantenimiento de equipos de cómputo. Me caracterizo por la capacidad de adaptación, el trabajo en equipo y la comunicación efectiva. Inglés B1."
   },
   "experience": {
     "title": "Experiencia laboral",
@@ -57,75 +57,41 @@
   },
   "stack": {
     "title": "Stack técnico",
-    "hint": "Pasa el cursor sobre cada logo para ver la tecnología."
+    "hint": "Lenguajes, frameworks y herramientas que utilizo en mis proyectos."
   },
   "technicalSkills": {
-    "title": "Habilidades técnicas",
+    "title": "Competencias técnicas",
     "groups": [
       {
-        "id": "languages",
-        "label": "Lenguajes",
+        "id": "software-engineering",
+        "label": "Ingeniería y desarrollo de software",
         "items": [
-          "JavaScript",
-          "Python",
-          "PHP",
-          "Java",
-          "R"
-        ]
-      },
-      {
-        "id": "frontend",
-        "label": "Desarrollo frontend",
-        "items": [
-          "React",
-          "Material UI (MUI)",
-          "HTML5",
-          "CSS3",
-          "Bootstrap"
-        ]
-      },
-      {
-        "id": "backend",
-        "label": "Desarrollo backend",
-        "items": [
-          "Node.js",
-          "Express",
-          "Laravel",
-          "Django"
-        ]
-      },
-      {
-        "id": "databases",
-        "label": "Bases de datos",
-        "items": [
-          "MySQL",
-          "SQL Server"
-        ]
-      },
-      {
-        "id": "tools",
-        "label": "Herramientas",
-        "items": [
-          "Git",
-          "GitHub",
-          "Joi",
-          "Swagger",
-          "Visual Studio Code",
-          "Docker"
+          "Diseño y mantenimiento de API REST",
+          "Arquitectura por capas y separación de responsabilidades",
+          "Aplicación de principios SOLID y patrones DTO",
+          "Validación de datos y documentación técnica de servicios",
+          "Desarrollo de interfaces adaptables a distintos dispositivos",
+          "Control de versiones y trabajo con ramas"
         ]
       },
       {
         "id": "networking",
-        "label": "Redes y soporte",
+        "label": "Redes e infraestructura",
         "items": [
-          "LAN",
-          "IPv4/IPv6",
-          "VLAN",
-          "DHCP",
-          "Routers",
-          "Switches",
-          "Cableado estructurado",
-          "Mantenimiento e instalación de equipos"
+          "Configuración y soporte de redes LAN",
+          "Direccionamiento IPv4/IPv6, VLAN y DHCP",
+          "Instalación y diagnóstico de routers y switches",
+          "Instalación y organización de cableado estructurado"
+        ]
+      },
+      {
+        "id": "computer-support",
+        "label": "Ensamble y soporte de equipos",
+        "items": [
+          "Ensamble y puesta en marcha de computadores",
+          "Instalación y configuración de sistemas y periféricos",
+          "Mantenimiento preventivo y correctivo de equipos",
+          "Diagnóstico de fallas de hardware y software"
         ]
       },
       {
@@ -174,10 +140,10 @@
     "items": [
       {
         "id": "project-one",
-        "name": "Sitio de portafolio",
-        "shortDescription": "Portafolio web para presentar mi perfil, experiencia y proyectos en una interfaz adaptable.",
-        "description": "Desarrollé este portafolio con React, Vite y Material UI para reunir mi perfil profesional, experiencia, formación, stack técnico y contacto. Incluye temas claro y oscuro, contenido en español e inglés, fondo neuronal animado y galerías de proyectos, con una estructura modular pensada para facilitar su navegación y mantenimiento.",
-        "imageAlt": "Vista previa de un sitio de portafolio",
+        "name": "Plataforma de gestión de citas",
+        "shortDescription": "Aplicación web para consultar disponibilidad y organizar citas de forma sencilla.",
+        "description": "Esta plataforma permite consultar horarios disponibles, solicitar citas y revisar reservas desde una interfaz clara y adaptable. Su estructura organiza la información para facilitar la gestión de usuarios y la programación de servicios.",
+        "imageAlt": "Vista previa de una plataforma de gestión de citas",
         "technologies": [
           "React",
           "MUI",
@@ -212,7 +178,7 @@
   },
   "contact": {
     "title": "Contacto",
-    "text": "Estoy disponible para conversar sobre oportunidades de desarrollo web, soporte técnico y mantenimiento, diagnóstico y reparación de equipos de cómputo.",
+    "text": "Disponible para oportunidades en ingeniería y desarrollo web, soporte de redes, ensamble, diagnóstico y mantenimiento de equipos de cómputo.",
     "email": "Correo",
     "whatsapp": "WhatsApp",
     "github": "GitHub",
