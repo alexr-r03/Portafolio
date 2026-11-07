@@ -1,4 +1,4 @@
-import { Box, Link, Stack, Typography } from '@mui/material'
+import { Box, Link, Stack, Tooltip, Typography } from '@mui/material'
 import EmailRoundedIcon from '@mui/icons-material/EmailRounded'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import InstagramIcon from '@mui/icons-material/Instagram'
@@ -42,23 +42,24 @@ export default function ContactLinks({ t, compact = false, presentation = false 
         const external = href.startsWith('https://')
 
         return (
-          <Link
-            key={key}
-            href={href}
-            target={external ? '_blank' : undefined}
-            rel={external ? 'noreferrer' : undefined}
-            aria-label={t(`contact.${key}`)}
-            underline="none"
-            className="contact-link"
-          >
-            <Icon />
-            {!compact && (presentation
-              ? <Box className="presentation-contact-copy">
-                  <Typography className="presentation-contact-label">{t(`contact.${key}`)}</Typography>
-                  <Typography className="presentation-contact-value">{getContactValue(key)}</Typography>
-                </Box>
-              : <Typography component="span">{t(`contact.${key}`)}: {getContactValue(key)}</Typography>)}
-          </Link>
+          <Tooltip key={key} title={compact ? t(`contact.${key}`) : ''}>
+            <Link
+              href={href}
+              target={external ? '_blank' : undefined}
+              rel={external ? 'noreferrer' : undefined}
+              aria-label={t(`contact.${key}`)}
+              underline="none"
+              className="contact-link"
+            >
+              <Icon />
+              {!compact && (presentation
+                ? <Box className="presentation-contact-copy">
+                    <Typography className="presentation-contact-label">{t(`contact.${key}`)}</Typography>
+                    <Typography className="presentation-contact-value">{getContactValue(key)}</Typography>
+                  </Box>
+                : <Typography component="span">{t(`contact.${key}`)}: {getContactValue(key)}</Typography>)}
+            </Link>
+          </Tooltip>
         )
       })}
     </Stack>

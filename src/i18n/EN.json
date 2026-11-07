@@ -17,8 +17,12 @@
     "close": "Close",
     "switchToEnglish": "Switch to English",
     "switchToSpanish": "Switch to Spanish",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
     "lightMode": "Enable light mode",
-    "darkMode": "Enable dark mode"
+    "darkMode": "Enable dark mode",
+    "hideBackground": "Turn background off",
+    "showBackground": "Turn background on"
   },
   "hero": {
     "role": "Systems Engineer | Full Stack Developer",
