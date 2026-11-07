@@ -42,6 +42,8 @@ import { useI18n } from '../i18n'
 import { colors } from '../theme/colors'
 import { globalStyles } from '../theme/globalStyles'
 
+const projectsById = new Map(projects.map((project) => [project.id, project]))
+
 function App() {
   const [backgroundVisible, setBackgroundVisible] = useState(true)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -130,10 +132,10 @@ function App() {
     setMode(next)
     localStorage.setItem('portfolio-mode', next)
   }
-  const localizedProjects = t('projects.items').map((project) => ({
-    ...projects.find((item) => item.id === project.id),
+  const localizedProjects = useMemo(() => t('projects.items').map((project) => ({
+    ...projectsById.get(project.id),
     ...project,
-  }))
+  })), [language, t])
 
   return (
     <ThemeProvider theme={theme}>

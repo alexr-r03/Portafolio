@@ -21,13 +21,13 @@
     "darkMode": "Enable dark mode"
   },
   "hero": {
-    "role": "Systems Engineer · Web Developer",
-    "intro": "Tenth-semester Systems Engineering student with hands-on frontend and backend web development experience.",
+    "role": "Systems Engineer | Full Stack Developer",
+    "intro": "I develop modern web applications, build RESTful APIs, and design automation solutions focused on optimizing processes and enhancing digital experiences.",
     "location": "Bogotá, Colombia"
   },
   "about": {
     "title": "Professional profile",
-    "text": "Tenth-semester Systems Engineer with practical experience in frontend and backend web development using JavaScript, React, Node.js, and Express. Experienced in building and maintaining REST APIs, developing interfaces with Material UI (MUI), validating data with Joi, documenting services with Swagger, and version control with Git and GitHub. Knowledge of MySQL and SQL Server databases, as well as Python, PHP, Laravel, and Django. Also familiar with computer maintenance, networking, and information security fundamentals. Recognized for teamwork, adaptability, and effective communication. English: B1."
+    "text": "Systems Engineer focused on building frontend and backend web solutions, with hands-on experience developing and maintaining REST APIs, organizing applications around SOLID principles, validating data, and preparing technical documentation. I also have knowledge of networking (LAN, IPv4/IPv6, VLAN, DHCP, and structured cabling) as well as computer assembly, installation, diagnostics, and maintenance. I am adaptable, collaborative, and an effective communicator. English: B1."
   },
   "experience": {
     "title": "Work experience",
@@ -57,75 +57,41 @@
   },
   "stack": {
     "title": "Technical stack",
-    "hint": "Hover over a logo to see the technology."
+    "hint": "Languages, frameworks, and tools I use in my projects."
   },
   "technicalSkills": {
-    "title": "Technical skills",
+    "title": "Technical competencies",
     "groups": [
       {
-        "id": "languages",
-        "label": "Languages",
+        "id": "software-engineering",
+        "label": "Software engineering and development",
         "items": [
-          "JavaScript",
-          "Python",
-          "PHP",
-          "Java",
-          "R"
-        ]
-      },
-      {
-        "id": "frontend",
-        "label": "Frontend development",
-        "items": [
-          "React",
-          "Material UI (MUI)",
-          "HTML5",
-          "CSS3",
-          "Bootstrap"
-        ]
-      },
-      {
-        "id": "backend",
-        "label": "Backend development",
-        "items": [
-          "Node.js",
-          "Express",
-          "Laravel",
-          "Django"
-        ]
-      },
-      {
-        "id": "databases",
-        "label": "Databases",
-        "items": [
-          "MySQL",
-          "SQL Server"
-        ]
-      },
-      {
-        "id": "tools",
-        "label": "Tools",
-        "items": [
-          "Git",
-          "GitHub",
-          "Joi",
-          "Swagger",
-          "Visual Studio Code",
-          "Docker"
+          "REST API design and maintenance",
+          "Layered architecture and separation of concerns",
+          "SOLID principles and Data Transfer Objects (DTOs)",
+          "Data validation and technical service documentation",
+          "Responsive interface development",
+          "Version control and branching workflows"
         ]
       },
       {
         "id": "networking",
-        "label": "Networking and support",
+        "label": "Networking and infrastructure",
         "items": [
-          "LAN",
-          "IPv4/IPv6",
-          "VLAN",
-          "DHCP",
-          "Routers",
-          "Switches",
-          "Structured cabling",
-          "Computer maintenance and installation"
+          "LAN configuration and support",
+          "IPv4/IPv6 addressing, VLAN, and DHCP",
+          "Router and switch installation and troubleshooting",
+          "Structured cabling installation and organization"
+        ]
+      },
+      {
+        "id": "computer-support",
+        "label": "Computer assembly and support",
+        "items": [
+          "Computer assembly and setup",
+          "Operating system and peripheral installation and configuration",
+          "Preventive and corrective equipment maintenance",
+          "Hardware and software troubleshooting"
         ]
       },
       {
@@ -174,10 +140,10 @@
     "items": [
       {
         "id": "project-one",
-        "name": "Portfolio website",
-        "shortDescription": "A responsive portfolio presenting my profile, experience, and projects.",
-        "description": "I built this portfolio with React, Vite, and Material UI to bring together my professional profile, experience, education, technical stack, and contact details. It includes light and dark themes, Spanish and English content, an animated neural background, and project galleries in a modular structure designed for clear navigation and maintainability.",
-        "imageAlt": "Portfolio website preview",
+        "name": "Appointment management platform",
+        "shortDescription": "A web app for checking availability and organizing appointments with ease.",
+        "description": "This platform lets users browse available time slots, request appointments, and review bookings through a clear, responsive interface. Its structure organizes information to make user management and service scheduling straightforward.",
+        "imageAlt": "Appointment management platform preview",
         "technologies": [
           "React",
           "MUI",
@@ -212,7 +178,7 @@
   },
   "contact": {
     "title": "Contact",
-    "text": "I'm available to discuss opportunities in web development, technical support, computer maintenance, troubleshooting, and hardware repair.",
+    "text": "Available for opportunities in engineering and web development, network support, computer assembly, diagnostics, and equipment maintenance.",
     "email": "Email",
     "whatsapp": "WhatsApp",
     "github": "GitHub",

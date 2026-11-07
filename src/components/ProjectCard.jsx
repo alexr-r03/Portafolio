@@ -1,9 +1,8 @@
-import { useState } from 'react'
+import { memo, useState } from 'react'
 import { Box, Chip, Stack, Typography } from '@mui/material'
-import ArrowOutwardRoundedIcon from '@mui/icons-material/ArrowOutwardRounded'
 import ProjectDialog from './ProjectDialog'
 
-export default function ProjectCard({ project, t }) {
+function ProjectCard({ project, t }) {
   const [open, setOpen] = useState(false)
 
   const openDialog = () => {
@@ -35,7 +34,6 @@ export default function ProjectCard({ project, t }) {
         <Box className="project-details">
           <Stack direction="row" gap={2} sx={{ alignItems: 'center', justifyContent: 'space-between' }}>
             <Typography variant="h3" className="project-title">{project.name}</Typography>
-            <ArrowOutwardRoundedIcon className="project-card-open-icon" fontSize="small" aria-hidden="true" />
           </Stack>
           <Typography className="project-description">{project.shortDescription || project.description}</Typography>
           <Stack direction="row" gap={0.8} sx={{ flexWrap: 'wrap' }}>
@@ -47,3 +45,5 @@ export default function ProjectCard({ project, t }) {
     </>
   )
 }
+
+export default memo(ProjectCard)

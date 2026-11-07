@@ -547,6 +547,12 @@ button, a { -webkit-tap-highlight-color: #00000000; }
 
 .skill-groups {
   margin-top: 21px;
+  row-gap: 24px !important;
+}
+
+.skill-group > .MuiStack-root {
+  column-gap: 12px !important;
+  row-gap: 12px !important;
 }
 
 .skill-category.MuiTypography-root {
